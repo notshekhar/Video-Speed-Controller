@@ -22,6 +22,13 @@ speed.onmouseleave = () =>{
 }
 speed.onmousedown = () =>{
   f = true
+  let y = e.layerY
+  let percentage = (y/379*100)
+  let absoluteSpeed = parseFloat((maxspeed*percentage/100)+minspeed).toFixed(2)
+  console.log(absoluteSpeed)
+  speedV.style.height = `${percentage}%`
+  speedV.innerText = `${absoluteSpeed}x`
+  video.playbackRate = absoluteSpeed
 }
 speed.onmouseup = () =>{
   f = false
